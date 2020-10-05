@@ -38,6 +38,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 			.antMatchers("/register","/login").permitAll()
 			.antMatchers("/save_item","/items/**","/item_param_save").permitAll()
 			.antMatchers("/teacher/**").permitAll()
+			.antMatchers("/books/**").permitAll()
 			.antMatchers("/admin/**").hasAnyRole("USER,ADMIN,MANAGER")
 			.antMatchers("/user/**").hasRole("USER")
 			.antMatchers("/info").hasAuthority("USER")

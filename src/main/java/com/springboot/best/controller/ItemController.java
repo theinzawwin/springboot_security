@@ -48,5 +48,10 @@ public class ItemController {
 		itemService.save(item);
 		return ResponseEntity.status(HttpStatus.CREATED).body(true);
 	}
+	@GetMapping("/items/{id}")
+	public ResponseEntity<?> getItemById(@PathVariable Long id){
+		
+		return ResponseEntity.status(HttpStatus.OK).body(itemService.findItemByIdForCriteria(id));
+	}
 	
 }

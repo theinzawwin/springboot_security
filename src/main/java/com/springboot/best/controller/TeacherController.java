@@ -1,5 +1,7 @@
 package com.springboot.best.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springboot.best.dto.TeacherDTO;
+import com.springboot.best.dto.TeacherNameAndDeptNameDTO;
 import com.springboot.best.services.DepartmentService;
 import com.springboot.best.services.TeacherService;
 
@@ -41,5 +45,10 @@ public class TeacherController {
 	public String createPost(@ModelAttribute(value="teacher")TeacherDTO teacher,Model model) {
 		teacherService.save(teacher);
 		return "redirect:/teacher/list";
+	}
+	@GetMapping("/name_and_dept")
+	public @ResponseBody List<TeacherNameAndDeptNameDTO> getTeacherNameAndDept(){
+		
+		return teacherService.findTeacherNameAndDeptName();
 	}
 }

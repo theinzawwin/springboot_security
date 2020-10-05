@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.best.dao.TeacherRepository;
 import com.springboot.best.dto.TeacherDTO;
+import com.springboot.best.dto.TeacherNameAndDeptNameDTO;
 import com.springboot.best.services.mapper.TeacherConverter;
 
 @Service
@@ -37,6 +38,12 @@ public class TeacherServiceImpl implements TeacherService{
 	public TeacherDTO findById(Long id) {
 		// TODO Auto-generated method stub
 		return TeacherConverter.toDTO(teacherRepository.findById(id).get());
+	}
+
+	@Override
+	public List<TeacherNameAndDeptNameDTO> findTeacherNameAndDeptName() {
+		// TODO Auto-generated method stub
+		return null;//return teacherRepository.getTeacherNameAndDeptList();
 	}
 
 }

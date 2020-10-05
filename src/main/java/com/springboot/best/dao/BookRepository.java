@@ -3,8 +3,8 @@ package com.springboot.best.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.springboot.best.model.Item;
+import com.springboot.best.model.Book;
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Long>,ItemCustomCriteriaRepository{
+public interface BookRepository extends JpaRepository<Book, Long>,BookCriteriaRepository {
 
 }

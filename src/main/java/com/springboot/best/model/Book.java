@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 @Entity
-public class Teacher implements Serializable {
+public class Book implements Serializable{
 
 	/**
 	 * 
@@ -30,35 +30,36 @@ public class Teacher implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNrc() {
-		return nrc;
+	public String getTitle() {
+		return title;
 	}
-	public void setNrc(String nrc) {
-		this.nrc = nrc;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getPhone() {
-		return phone;
+	public String getAuthor() {
+		return author;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
-	public String getEmail() {
-		return email;
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Department getDepartment() {
-		return department;
-	}
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 	private String name;
-	private String nrc;
-	private String phone;
-	private String email;
+	private String title;
+	private String author;
+	private String isbn;
 	@ManyToOne
-	@JoinColumn(name="department_id")
-	private Department department=new Department();
+	@JoinColumn(name="bookcategory_id")
+	private BookCategory bookCategory;
+	public BookCategory getBookCategory() {
+		return bookCategory;
+	}
+	public void setBookCategory(BookCategory bookCategory) {
+		this.bookCategory = bookCategory;
+	}
+	
 }

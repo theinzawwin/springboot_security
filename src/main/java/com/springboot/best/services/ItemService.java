@@ -11,5 +11,6 @@ public interface ItemService {
 	List<ItemDTO> findAll();
 	ItemDTO findById(Long id);
 	void delete(Long id);
+	ItemDTO findItemByIdForCriteria(Long id);
  List<ItemNameAndQtyDTO> findItemNameQtyList();
 }

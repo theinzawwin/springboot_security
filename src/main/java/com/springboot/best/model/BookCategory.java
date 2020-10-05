@@ -9,12 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
-public class Department implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class BookCategory implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -31,14 +26,13 @@ public class Department implements Serializable {
 		this.name = name;
 	}
 	private String name;
-	@OneToMany(mappedBy = "department")
-	private List<Teacher> teacherList;
-	public List<Teacher> getTeacherList() {
-		return teacherList;
+	@OneToMany(mappedBy = "bookCategory")
+	private List<Book> bookList;
+	public List<Book> getBookList() {
+		return bookList;
 	}
-	public void setTeacherList(List<Teacher> teacherList) {
-		this.teacherList = teacherList;
+	public void setBookList(List<Book> bookList) {
+		this.bookList = bookList;
 	}
-	
 	
 }

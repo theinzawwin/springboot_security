@@ -48,4 +48,10 @@ public class ItemServiceImpl implements ItemService{
 		return items.stream().map(ItemConverter::toDtoForNameAndQty).collect(Collectors.toList());
 	}
 
+	@Override
+	public ItemDTO findItemByIdForCriteria(Long id) {
+		// TODO Auto-generated method stub
+		return ItemConverter.toDto(itemRepository.findItemById(id));
+	}
+
 }
