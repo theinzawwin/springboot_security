@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,7 @@ import com.springboot.best.model.Item;
 import com.springboot.best.services.ItemService;
 
 @RestController
+@RequestMapping(value="/items/")
 public class ItemController {
 
 	@Autowired
@@ -29,15 +31,15 @@ public class ItemController {
 		itemService.save(item);
 		return ResponseEntity.status(HttpStatus.CREATED).body(true);
 	}
-	@GetMapping("/items")
+	@GetMapping("/")
 	public ResponseEntity<List<ItemDTO>> findAllItem(){
 		return ResponseEntity.status(HttpStatus.OK).body(itemService.findAll());
 	}
-	@GetMapping("/items/name_and_qty")
+	@GetMapping("/name_and_qty")
 	public ResponseEntity<List<ItemNameAndQtyDTO>> findAllNameAndQty(){
 		return ResponseEntity.status(HttpStatus.OK).body(itemService.findItemNameQtyList());
 	}
-	@DeleteMapping("/items/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteById(@PathVariable(value = "id") Long id){
 		itemService.delete(id);
 		return ResponseEntity.status(HttpStatus.OK).body("successfully deleted");
@@ -48,7 +50,7 @@ public class ItemController {
 		itemService.save(item);
 		return ResponseEntity.status(HttpStatus.CREATED).body(true);
 	}
-	@GetMapping("/items/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getItemById(@PathVariable Long id){
 		
 		return ResponseEntity.status(HttpStatus.OK).body(itemService.findItemByIdForCriteria(id));

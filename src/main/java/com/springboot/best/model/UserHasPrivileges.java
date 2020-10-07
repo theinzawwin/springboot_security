@@ -2,6 +2,7 @@ package com.springboot.best.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class UserHasPrivileges implements Serializable{
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User user;
+	private User user=new User();
 	public Long getId() {
 		return id;
 	}
@@ -37,5 +38,5 @@ public class UserHasPrivileges implements Serializable{
 	}
 	@ManyToOne
 	@JoinColumn(name="privilege_id")
-	private Privileges privileges;
+	private Privileges privileges=new Privileges();
 }
